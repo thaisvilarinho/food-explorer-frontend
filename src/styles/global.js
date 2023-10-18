@@ -16,7 +16,7 @@ export default createGlobalStyle`
   }
 
   body, input, button, textarea {
-    font-family: 'Poppins', sans-serif;
+    font-family: ${({ theme }) => theme.FONTS.PRIMARY};
     font-size: 16px;
     outline: none;
   }
