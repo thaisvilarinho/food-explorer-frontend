@@ -1,10 +1,15 @@
 import styled from "styled-components";
 
 export const Container = styled.header`
+  grid-area: header;
+
+  height: 96px;
+  width: 100%;
+  
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24px 123px;
+  padding: 0 123px;
 `;
 
 export const Logo = styled.div`
@@ -18,6 +23,7 @@ export const Logo = styled.div`
   }
 
   > div {
+    margin-top: 15px;
     display: flex;
     flex-direction: column;
     align-items: end;
