@@ -5,10 +5,10 @@ export const Container = styled.header`
 
   height: 96px;
   width: 100%;
+  gap: 32px;
   
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 0 123px;
 `;
 
@@ -48,7 +48,7 @@ export const Logo = styled.div`
 
 export const Search = styled.div`
   display: flex;
-  width: 581px;
+  width: 100%;
   align-items: center;
   gap: 14px;
 
@@ -84,7 +84,10 @@ export const ButtonsWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 32px;
-  width: 280px;
+
+  & > Button:first-of-type {
+    width: 216px; 
+  }
 
 `;
 

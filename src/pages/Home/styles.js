@@ -14,33 +14,43 @@ export const Container = styled.div`
 export const Content = styled.main`
   grid-area: content;
 
-  padding: 0 123px 0 54px;
+  padding-top: 33px;
+`;
 
-  > section {
-    display: flex;
-    color: ${({ theme }) => theme.COLORS.LIGHT_100 };
+export const Hero = styled.div`
+  display: flex;
+  color: ${({ theme }) => theme.COLORS.LIGHT_100};
+  padding: 0 124px 0 54px;
 
-
-    div {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      width: 100%;
-      padding: 0 101px 0 11px;
-
-      h2 {
-        font-weight: 500;
-        font-size: 40px;
-        line-height: 140%;
-        white-space: nowrap;
-      }
-  
-      p {
-        font-family: ${({ theme }) => theme.FONTS.SECONDARY };
-        font-size: 16px;
-        line-height: 100%;
-      }
-    }
-
+  > img {
+    width: 100%;
   }
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 0 101px 0 11px;
+
+  h2 {
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 140%;
+    white-space: nowrap;
+  }
+  
+  p {
+      font-family: ${({ theme }) => theme.FONTS.SECONDARY};
+      font-size: 16px;
+      line-height: 100%;
+    }
+  }
+`;
+
+export const Carousels = styled.div`
+  width: 100vw;
+  display: flex;
+  gap: 48px;
+  padding: 48px 123px;
 `;

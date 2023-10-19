@@ -26,7 +26,7 @@ export function Header() {
       </Search>
 
       <ButtonsWrapper>
-        <Button title="Novo prato" />
+        <Button title="Novo prato" className="teste"/>
 
         <ButtonIcon type="button">
           <SignOut />
