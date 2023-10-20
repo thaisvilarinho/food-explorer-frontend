@@ -3,9 +3,9 @@ import styled from "styled-components";
 export const Container = styled.footer`
   grid-area: footer;
 
-  height: 77px;
   width: 100%;
-  padding: 0 123px;
+  padding: 0px 123px;
+  height: 77px;
 
   display: flex;
   align-items: center;
