@@ -5,10 +5,12 @@ export const Container = styled.div`
   height: 100vh;
 
   display: grid;
-  grid-template-rows: 96px auto;
+  grid-template-rows: 96px auto 77px;
   grid-template-areas: 
     'header'
-    'content';
+    'content'
+    'footer'
+    ;
 `;
 
 export const Content = styled.main`

@@ -6,19 +6,37 @@ export const Container = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;    
+        z-index: 3;
     }
 
-    .left {
+    .swiper::before {
       background: ${({ theme }) => theme.COLORS.GRADIENT_LEFT};
+      content: "";
+      z-index: 2;
+      position: absolute;
+      height: 100%;
+      width: 227px;
       top: 0;
       left: 0;
+
     }
 
-    .right {
+    .swiper::after {
       background: ${({ theme }) => theme.COLORS.GRADIENT_RIGHT};
+      content: "";
+      z-index: 2;
+      position: absolute;
+      height: 100%;
+      width: 227px;
       top: 0;
       right: 0;
     }
+
+    .first-slide::before,
+    .last-slide::after {
+      z-index: 0;
+    }
+
 
   
   .swiper-button-next,
@@ -31,11 +49,4 @@ export const Container = styled.div`
         }
     }
  
-`;
-
-export const Overlay = styled.div`
-  z-index: 2;
-  position: absolute;
-  height: 100%;
-  width: 227px;
 `;

@@ -19,7 +19,12 @@ export const Logo = styled.div`
 
 
   > svg { 
-    font-size: 30px;
+    width: 30px;
+    height: 30px;
+
+    path {
+      fill: ${({ theme }) => theme.COLORS.CAKE_200};
+    }
   }
 
   > div {
