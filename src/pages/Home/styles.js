@@ -48,9 +48,10 @@ export const Hero = styled.div`
   }
 `;
 
-export const Carousels = styled.div`
+export const Dishes = styled.div`
   width: 100vw;
   display: flex;
+  flex-direction: column;
   gap: 48px;
   padding: 48px 123px;
 `;

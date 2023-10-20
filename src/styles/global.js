@@ -7,6 +7,10 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
+  :root {
+    --swiper-navigation-size: 27px;
+  }
+
 
   body {
     background-color: ${({ theme }) => theme.COLORS.DARK_400};

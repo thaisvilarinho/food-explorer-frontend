@@ -4,6 +4,7 @@ export const Container = styled.button`
   background: transparent;
   border: none;
   padding: 0 24px;
+  min-width: 304px;
 
   color: ${({ theme }) => theme.COLORS.LIGHT_300};
 

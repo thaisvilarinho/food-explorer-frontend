@@ -1,46 +1,29 @@
-import { useState } from "react";
-import { CaretLeft, CaretRight } from "@phosphor-icons/react";
+import { Navigation, Scrollbar, A11y } from "swiper/modules";
 
-import { Card } from "../../components/Card";
+import { Swiper } from "swiper/react";
 
-import { Container, Slider, Overlay } from "./styles";
+import "swiper/css/navigation";
+import "swiper/css/scrollbar";
+import "swiper/swiper-bundle.css";
 
-export function Carousel({ title, items }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+import { Container, Overlay } from "./styles";
 
-  const nextSlide = () => {
-    if (currentIndex < items.length - 1) {
-      setCurrentIndex(currentIndex + 1);
-    }
-  };
-
-  const prevSlide = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-    }
-  };
-
+export function Carousel({ children }) {
   return (
     <Container>
-      <h2>{title}</h2>
 
-      <Overlay className="left" onClick={prevSlide}>
-        <button className="previous">
-          <CaretLeft />
-        </button>
-      </Overlay>
-      <Slider
-        style={{ transform: `translateX(-${currentIndex * (100 / items.length)}%)` }}
+      <Swiper
+        modules={[Navigation, Scrollbar, A11y]}
+        spaceBetween={27}
+        slidesPerView={4}
+        navigation
+        loop
+        scrollbar={{ draggable: true }}
       >
-        {items.map((item) => (
-          <Card key={item.id} data={item} />
-        ))}
-      </Slider>
-      <Overlay className="right" onClick={nextSlide}>
-        <button className="next">
-          <CaretRight />
-        </button>
-      </Overlay>
+      <Overlay className="left" />
+        {children}
+      <Overlay className="right" />
+      </Swiper>
     </Container>
   );
 }
