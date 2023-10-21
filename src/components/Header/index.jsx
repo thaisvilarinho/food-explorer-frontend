@@ -29,7 +29,7 @@ export function Header() {
 
       <Search>
         <MagnifyingGlass />
-        <input name="search" placeholder="Busque por pratos ou ingredientes" />
+        <input label="search" placeholder="Busque por pratos ou ingredientes" />
       </Search>
 
       <ButtonsWrapper>

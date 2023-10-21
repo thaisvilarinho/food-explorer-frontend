@@ -47,7 +47,7 @@ export function Dish() {
                   placeholder="Selecione imagem"
                 />
               </ImageWrapper>
-              <Input id="name" name="Nome" placeholder="Ex.: Salada Ceasar" />
+              <Input id="name" label="Nome" placeholder="Ex.: Salada Ceasar" />
 
               <Category>
                 <label htmlFor="category" className="legend">
