@@ -66,7 +66,7 @@ export const Search = styled.div`
 
   > input {
     width: 100%;
-    color: ${({ theme }) => theme.COLORS.LIGHT_400};
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
     font-family: ${({ theme }) => theme.FONTS.SECONDARY};
     font-size: 16px;
 

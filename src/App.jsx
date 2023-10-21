@@ -1,5 +1,5 @@
-import { Details } from "./pages/Details";
+import { Dish } from "./pages/Dish";
 
 export default function App() {
-  return <Details />
+  return <Dish />
 }

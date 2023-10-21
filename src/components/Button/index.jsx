@@ -1,8 +1,12 @@
 import { Container } from './styles';
 
-export function Button({ icon: Icon, title, ...rest }) {
+export function Button({ icon: Icon, title, darkColor = true, ...rest }) {
   return (
-    <Container type="button" {...rest}>
+    <Container 
+      type="button" 
+      {...rest}
+      $darkColor={darkColor}
+    >
       {Icon && <Icon />}
       <span>{title}</span>
     </Container>

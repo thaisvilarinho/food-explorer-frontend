@@ -16,7 +16,7 @@ export const Container = styled.div`
 export const Content = styled.main`
   grid-area: content;
 
-  padding-top: 33px;
+  padding-top: 32px;
 `;
 
 export const Hero = styled.div`

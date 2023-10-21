@@ -22,10 +22,12 @@ export default {
     GRADIENT_LEFT: "linear-gradient(270deg, rgba(255,255,255,0) 0%, #000A0F)",
     GRADIENT_RIGHT: "linear-gradient(90deg, rgba(255,255,255,0) 0%, #000A0F)",
 
-    TOMATO_100: "#750310",
-    TOMATO_200: "#92000E",
-    TOMATO_300: "#AB222E",
-    TOMATO_400: "#AB4D55",
+ 
+    TOMATO_100: "#AB4D55",
+    TOMATO_200: "#AB222E",
+    TOMATO_300: "#92000E",
+    TOMATO_400: "#750310",
+  
 
     CARROT_100: "#FBA94C",
 
