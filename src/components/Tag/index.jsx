@@ -2,7 +2,7 @@ import { Plus, X } from "@phosphor-icons/react";
 
 import { Container } from './styles'
 
-export function Note({ isNew=false, value, onClick, ...rest }) {
+export function Tag({ isNew=false, value, onClick, ...rest }) {
   return (
     <Container $isnew={isNew}>
       <input

@@ -8,7 +8,7 @@ import { Header } from "../../components/Header";
 import { ButtonText } from "../../components/ButtonText";
 import { Input } from "../../components/Input";
 import { TextArea } from "../../components/TextArea";
-import { Note } from "../../components/Note";
+import { Tag } from "../../components/Tag";
 import { Button } from "../../components/Button";
 import { Footer } from "../../components/Footer";
 
@@ -283,14 +283,14 @@ export function Dish() {
                 <span className="legend">Ingredientes</span>
                 <Ingredients>
                   {ingredients.map((ingredient, index) => (
-                    <Note
+                    <Tag
                       key={String(index)}
                       value={ingredient}
                       onClick={() => handleRemoveIngredient(ingredient)}
                     />
                   ))}
 
-                  <Note
+                  <Tag
                     isNew
                     id="ingredients"
                     placeholder="Adicionar"

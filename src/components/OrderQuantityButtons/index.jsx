@@ -30,10 +30,8 @@ export function OrderQuantityButtons({ price }) {
   };
 
   const handleInclude = () => {
-    const isConfirm = confirm(`Deseja incluir mais ${quantity} item(s) no pedido?`);
-    if(isConfirm){
-      setTotalItemsOrder(totalItemsOrder + quantity);
-    }
+    setTotalItemsOrder(totalItemsOrder + quantity);
+    alert("Pedido atualizado");
   }
 
 
