@@ -32,6 +32,10 @@ export const Container = styled.div`
       border: 1px solid ${({ theme }) => theme.COLORS.LIGHT_100};
     }
 
+    &:invalid {
+      border: 1px solid ${({ theme }) => theme.COLORS.TOMATO_300};
+    }
+
     background: transparent;
     border: 0;
   }

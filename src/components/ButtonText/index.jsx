@@ -1,6 +1,6 @@
 import { Container } from "./styles";
 
-export function ButtonText({ icon: Icon, title, ...rest }){
+export function ButtonText({ icon: Icon, title, applyBold = false, ...rest }){
   return (
     <Container {...rest}>
       {Icon && (<Icon size={32} />)}

@@ -12,7 +12,7 @@ export const Container = styled.button`
 
   > span {
     font-weight: 700;
-    font-size: 14px;
+    font-size: 24px;
     line-height: 140%;
   }
 

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.footer`
   grid-area: footer;
@@ -20,7 +21,7 @@ export const Container = styled.footer`
 
 `;
 
-export const Logo = styled.div`
+export const Logo = styled(Link)`
   flex: 1;
   display: flex;
   align-items: center;

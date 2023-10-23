@@ -1,9 +1,38 @@
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
+
+import { api } from "../../services/api";
 
 import { Container, Form, Logo } from "./styles";
 
 export function SignUp() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  function handleSignUp() {
+    if (!name || !email || !password) {
+      return alert("Preencha todos os campos!");
+    }
+
+    api.post("/users", { name, email, password })
+      .then(() => {
+        alert("Cadastro realizado com sucesso!");
+        navigate("/");
+      }).catch(error => {
+        if (error.response) {
+          alert(error.response.data.message);
+        } else {
+          alert("Não foi possível cadastrar.");
+        }
+      });
+  }
+
   return (
     <Container>
       <aside>
@@ -25,30 +54,37 @@ export function SignUp() {
         <fieldset>
           <legend>Crie sua conta</legend>
           <Input
-            placeholder="Exemplo: Maria da Silva"
             id="name"
-            type="text"
             label="Seu nome"
-          />
-
-          <Input
-            placeholder="Exemplo: exemplo@exemplo.com.br"
-            id="email"
             type="text"
-            label="E-mail"
+            placeholder="Exemplo: Maria da Silva"
+            onChange={e => setName(e.target.value)}
           />
 
           <Input
-            placeholder="No mínimo 6 caracteres"
-            type="password"
+            id="email"
+            label="E-mail"
+            type="text"
+            placeholder="Exemplo: exemplo@exemplo.com.br"
+            onChange={e => setEmail(e.target.value)}
+          />
+
+          <Input
             id="password"
             label="Senha"
+            type="password"
+            minLength="6"
+            placeholder="No mínimo 6 caracteres"
+            onChange={e => setPassword(e.target.value)}
           />
         </fieldset>
 
-        <Button title="Criar conta" />
+        <Button 
+          title="Criar conta" 
+          onClick={handleSignUp}
+        />
 
-        <a href="/">Já tenho uma conta</a>
+        <Link to="/">Já tenho uma conta</Link>
       </Form>
     </Container>
   );

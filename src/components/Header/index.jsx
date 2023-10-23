@@ -1,15 +1,24 @@
-import { MagnifyingGlass, SignOut } from "@phosphor-icons/react";
-
-import FoodExplorerLogo from "../../assets/foodExplorerLogo.svg";
+import { MagnifyingGlass, SignOut, Receipt } from "@phosphor-icons/react";
+import { useNavigate } from "react-router-dom";
 
 import { Button } from "../Button";
 
+import { useAuth } from "../../hooks/auth";
+import { USER_ROLE } from "../../utils/roles";
+
 import { Container, Logo, Search, ButtonsWrapper, ButtonIcon } from "./styles";
 
-export function Header() {
+export function Header({ onSearch }) {
+  const navigate = useNavigate();
+  const { signOut, user } = useAuth();
+
+  function handleNavigationNewDish() {
+    navigate(`/newdish`);
+  }
+
   return (
     <Container>
-      <Logo>
+      <Logo to="/">
         <svg
           width="43"
           height="48"
@@ -17,25 +26,36 @@ export function Header() {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            d="M21.5706 0.216553L42.9737 12.0919V35.8426L21.5706 47.7179L0.167517 35.8426V12.0919L21.5706 0.216553Z"
-          />
+          <path d="M21.5706 0.216553L42.9737 12.0919V35.8426L21.5706 47.7179L0.167517 35.8426V12.0919L21.5706 0.216553Z" />
         </svg>
         <div>
           <h1>food explorer</h1>
-          <span>admin</span>
+          <span>{user.role}</span>
         </div>
       </Logo>
 
       <Search>
         <MagnifyingGlass />
-        <input label="search" placeholder="Busque por pratos ou ingredientes" />
+        <input
+          label="search"
+          placeholder="Busque por pratos ou ingredientes"
+          onChange={(e) => {
+            if (onSearch) {
+              onSearch(e.target.value);
+            }
+          }}
+        />
       </Search>
 
       <ButtonsWrapper>
-        <Button title="Novo prato" className="teste" />
+        {user.role === USER_ROLE.ADMIN && (
+          <Button title="Novo prato" onClick={handleNavigationNewDish} />
+        )}
+        {user.role === USER_ROLE.CUSTOMER && (
+          <Button icon={Receipt} title="Pedidos(0)" />
+        )}
 
-        <ButtonIcon type="button">
+        <ButtonIcon type="button" onClick={signOut}>
           <SignOut />
         </ButtonIcon>
       </ButtonsWrapper>

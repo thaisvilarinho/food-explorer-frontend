@@ -1,43 +1,89 @@
+import { useEffect, useState } from "react";
 import { CaretLeft } from "@phosphor-icons/react";
+import { useParams, useNavigate } from "react-router-dom";
 
 import { Header } from "../../components/Header";
-import { Footer } from "../../components/Footer";
 import { ButtonText } from "../../components/ButtonText";
+import { Button } from "../../components/Button";
+import { Footer } from "../../components/Footer";
+
+import Logo from "../../assets/foodExplorerLogo.svg";
+
+import { useAuth } from "../../hooks/auth";
+import { api } from "../../services/api";
+import { USER_ROLE } from "../../utils/roles";
 
 import { Container, Content, Dish, Description, Ingredients } from "./styles";
-import { Button } from "../../components/Button";
 
 export function Details() {
+  const params = useParams();
+  const navigate = useNavigate();
+  const { user } = useAuth();
+  const [data, setData] = useState(null);
+
+  function handleBack() {
+    navigate(-1);
+  }
+
+  function handleNavigateEditDish() {
+    navigate(`/dish/${data.id}`);
+  }
+
+  useEffect(() => {
+    async function fetchDish() {
+      const response = await api.get(`/dishes/${params.id}`, {
+        withCredentials: true,
+      });
+      const { image, ...rest } = response.data;
+
+      const imageURL = image ? `${api.defaults.baseURL}/files/${image}` : Logo;
+
+      setData({
+        ...rest,
+        image: imageURL,
+      });
+    }
+
+    fetchDish();
+  }, []);
+
   return (
     <Container>
       <Header />
       <Content>
-        <ButtonText icon={CaretLeft} title="voltar" />
+        <ButtonText icon={CaretLeft} title="voltar" onClick={handleBack} />
 
-        <Dish>
-          <img src="/meal1.png" alt={`Imagem do prato selecionado`} />
+        {data && (
+          <Dish>
+            <img src={data.image} alt={`Imagem do prato selecionado`} />
 
-          <Description>
-            <h2>Salada Ravanello</h2>
-            <p>
-              Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.
-              O pão naan dá um toque especial.
-            </p>
+            <Description>
+              <h2>{data.name}</h2>
+              <p>{data.description}</p>
 
-            <Ingredients>
-              <span>alface</span>
-              <span>cebola</span>
-              <span>pão naan</span>
-              <span>pepino</span>
-              <span>rabanete</span>
-              <span>tomate</span>
-            </Ingredients>
+              <Ingredients>
+                {data.ingredients.map((ingredient, index) => (
+                  <span key={ingredient + index}>{ingredient}</span>
+                ))}
+              </Ingredients>
 
-            <div>
-              <Button title="Editar prato" />
-            </div>
-          </Description>
-        </Dish>
+              <div>
+                {user.role === USER_ROLE.ADMIN && (
+                  <Button 
+                    title="Editar prato" 
+                    onClick={handleNavigateEditDish}
+                  />
+                )}
+                {user.role === USER_ROLE.CUSTOMER && (
+                  <Button 
+                    title={`incluir ∙ ${data.price}`}
+
+                  />
+                )}
+              </div>
+            </Description>
+          </Dish>
+        )}
       </Content>
       <Footer />
     </Container>

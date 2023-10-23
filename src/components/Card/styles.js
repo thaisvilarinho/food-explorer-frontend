@@ -1,38 +1,52 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const Container = styled.button`
-  background: transparent;
-  border: none;
+export const Container = styled.div`
   padding: 0 24px;
   max-width: 304px;
   height: 462px;
-
-  color: ${({ theme }) => theme.COLORS.LIGHT_300};
-
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
 
-  > small{
-    align-self: end;
-
-    svg {
-      font-size: 24px;
+  > button{
+      width: 24px;
+      height: 24px;
+      background: transparent;
+      border: none;
+      align-self: end;
+      
+      svg {
+        color: ${({ theme }) => theme.COLORS.LIGHT_300};
+        font-size: 24px;
     }
   }
 
-  > img {
-    width: 176px;
-    height: 176px;
-  }
+
+`;
+
+export const Content = styled(Link)`
+  color: ${({ theme }) => theme.COLORS.LIGHT_300};
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+
+
+    > img {
+      width: 176px;
+      height: 176px;
+    }
 
 `;
 
 export const Description = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 15px;
 
   > h3 {

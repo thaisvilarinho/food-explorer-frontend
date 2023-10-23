@@ -45,6 +45,7 @@ export const Form = styled.div`
     .horizontalWrapper {
       width: 100%;
       display: flex;
+      justify-content: space-between;
       gap: 32px;
     }
 
@@ -64,8 +65,26 @@ export const Form = styled.div`
     > button {
       width: 172px;
     }
+
+    .remove {
+      background: none;
+      border: none;
+      border-radius: 5px;
+
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      color: ${({ theme }) => theme.COLORS.LIGHT_100};
+
+      span {
+        width: 100%;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+      }
+    }
   }
-  
 
 `;
 
@@ -135,6 +154,7 @@ export const Category = styled.div`
 
 export const Ingredients = styled.div`
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
   margin-top: 16px;
 

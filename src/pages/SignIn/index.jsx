@@ -1,9 +1,24 @@
+
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
+
+import { useAuth } from '../../hooks/auth';
 
 import { Container, Form, Logo } from "./styles";
 
 export function SignIn() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const { signIn } = useAuth();
+
+  function handleSignIn() {
+    signIn({ email, password });
+  }
+
   return (
     <Container>
       <aside>
@@ -25,23 +40,30 @@ export function SignIn() {
         <fieldset>
           <legend>Faça login</legend>
           <Input
-            placeholder="Exemplo: exemplo@exemplo.com.br"
             id="email"
+            label="E-mail"
             type="text"
-            name="E-mail"
+            placeholder="Exemplo: exemplo@exemplo.com.br"
+            onChange={e => setEmail(e.target.value)}
           />
 
           <Input
-            placeholder="No mínimo 6 caracteres"
-            type="password"
             id="password"
             label="Senha"
+            autoComplete="off"
+            minLength="6"
+            type="password"
+            placeholder="No mínimo 6 caracteres"
+            onChange={e => setPassword(e.target.value)}
           />
         </fieldset>
 
-        <Button title="Entrar" />
+        <Button 
+          title="Entrar" 
+          onClick={handleSignIn}
+        />
 
-        <a href="/">Criar uma conta</a>
+        <Link to="/register">Criar uma conta</Link>
       </Form>
     </Container>
   );

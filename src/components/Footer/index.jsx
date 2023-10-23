@@ -3,7 +3,7 @@ import { Container, Logo } from "./styles";
 export function Footer() {
   return (
     <Container>
-      <Logo>
+      <Logo to="/">
         <svg
           width="43"
           height="48"
