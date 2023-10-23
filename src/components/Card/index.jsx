@@ -1,6 +1,8 @@
 import { PencilSimple, HeartStraight } from "@phosphor-icons/react";
 import { useNavigate } from "react-router-dom";
 
+import { OrderQuantityButtons } from "../OrderQuantityButtons";
+
 import { useAuth } from "../../hooks/auth";
 import { api } from "../../services/api";
 import { USER_ROLE } from "../../utils/roles";
@@ -16,6 +18,11 @@ export function Card({ data, ...rest }) {
     ? `${api.defaults.baseURL}/files/${data.image}`
     : Logo;
 
+  const priceFormatted = data.price?.toLocaleString("pt-BR", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+
   function handleNavigateEditDish() {
     navigate(`/dish/${data.id}`);
   }
@@ -29,7 +36,7 @@ export function Card({ data, ...rest }) {
       )}
       {user.role === USER_ROLE.CUSTOMER && (
         <button>
-          <HeartStraight weight="fill" />
+          <HeartStraight />
         </button>
       )}
 
@@ -40,9 +47,12 @@ export function Card({ data, ...rest }) {
           <h3>{data.name + " >"}</h3>
           <span>{data.description}</span>
 
-          <p>R$ {data.price}</p>
+          <p>R$ {priceFormatted}</p>
         </Description>
       </Content>
+      {user.role === USER_ROLE.CUSTOMER && (
+        <OrderQuantityButtons />
+      )}
     </Container>
   );
 }

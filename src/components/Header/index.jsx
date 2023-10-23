@@ -4,11 +4,14 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "../Button";
 
 import { useAuth } from "../../hooks/auth";
+import { useOrder } from "../../hooks/order";
 import { USER_ROLE } from "../../utils/roles";
 
 import { Container, Logo, Search, ButtonsWrapper, ButtonIcon } from "./styles";
 
 export function Header({ onSearch }) {
+  const { totalItemsOrder } = useOrder();
+
   const navigate = useNavigate();
   const { signOut, user } = useAuth();
 
@@ -52,7 +55,7 @@ export function Header({ onSearch }) {
           <Button title="Novo prato" onClick={handleNavigationNewDish} />
         )}
         {user.role === USER_ROLE.CUSTOMER && (
-          <Button icon={Receipt} title="Pedidos(0)" />
+          <Button icon={Receipt} title={`Pedidos(${totalItemsOrder})`}  />
         )}
 
         <ButtonIcon type="button" onClick={signOut}>

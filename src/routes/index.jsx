@@ -9,6 +9,7 @@ import { CustomerRoutes } from './customer.routes';
 import { USER_ROLE } from '../utils/roles';
 import { useEffect } from 'react';
 import { api } from '../services/api';
+import { OrderProvider } from '../hooks/order';
 
 export function Routes() {
   const { user, signOut } = useAuth();
@@ -35,7 +36,11 @@ export function Routes() {
 
   return (
     <BrowserRouter>
-      {user ? <AccessRoute /> : <AuthRoutes />}
+      {user ? 
+      <OrderProvider>
+        <AccessRoute /> 
+      </OrderProvider>
+      : <AuthRoutes />}
     </BrowserRouter>
   );
 }

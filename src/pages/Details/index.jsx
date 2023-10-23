@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 
 import { Header } from "../../components/Header";
 import { ButtonText } from "../../components/ButtonText";
+import { OrderQuantityButtons } from "../../components/OrderQuantityButtons";
 import { Button } from "../../components/Button";
 import { Footer } from "../../components/Footer";
 
@@ -34,13 +35,17 @@ export function Details() {
       const response = await api.get(`/dishes/${params.id}`, {
         withCredentials: true,
       });
-      const { image, ...rest } = response.data;
+      const { image, price, ...rest } = response.data;
 
       const imageURL = image ? `${api.defaults.baseURL}/files/${image}` : Logo;
 
       setData({
         ...rest,
         image: imageURL,
+        price: price.toLocaleString("pt-BR", {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        }),
       });
     }
 
@@ -67,20 +72,19 @@ export function Details() {
                 ))}
               </Ingredients>
 
-              <div>
+              <div className="editButtonWrapper">
                 {user.role === USER_ROLE.ADMIN && (
-                  <Button 
-                    title="Editar prato" 
+                  <Button
+                    title="Editar prato"
                     onClick={handleNavigateEditDish}
                   />
                 )}
-                {user.role === USER_ROLE.CUSTOMER && (
-                  <Button 
-                    title={`incluir ∙ ${data.price}`}
-
-                  />
-                )}
               </div>
+              {user.role === USER_ROLE.CUSTOMER && (
+                <OrderQuantityButtons 
+                  price={data.price}
+                />
+              )}
             </Description>
           </Dish>
         )}

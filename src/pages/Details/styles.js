@@ -51,7 +51,7 @@ export const Description = styled.aside`
     line-height: 140%;
   }
 
-  > div {
+  .editButtonWrapper {
     margin-top: 24px;
     width: 131px;
   }

@@ -7,7 +7,6 @@ import { Carousel } from "../../components/Carousel";
 import { Card } from "../../components/Card";
 import { Footer } from "../../components/Footer";
 
-import { meals, desserts, drinks } from "../../utils/lists";
 import { DISH_CATEGORY } from "../../utils/categories";
 
 import { api } from "../../services/api";
