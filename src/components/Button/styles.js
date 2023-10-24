@@ -5,10 +5,10 @@ export const Container = styled.button`
   color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
   border: 0;
-  height: 48px;
+  height: 3rem;
   width: 100%;
   border-radius: 5px;
-  gap: 11px;
+  gap: 0.7rem;
 
   font-weight: 500;
 
@@ -18,13 +18,12 @@ export const Container = styled.button`
 
 
   > span {
-    font-size: 14px;
-    line-height: 24px;
+    font-size: 0.88rem;
     white-space: nowrap;
   }
 
   > svg {
-    font-size: 22px;
+    font-size: 1.38rem;
   }
 
 `;

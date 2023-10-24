@@ -12,10 +12,13 @@ import { DISH_CATEGORY } from "../../utils/categories";
 import { api } from "../../services/api";
 
 import { Container, Content, Hero, Dishes } from "./styles";
+import { SideMenu } from "../../components/SideMenu";
 
 export function Home() {
   const [dishes, setDishes] = useState({});
   const [search, setSearch] = useState("");
+  const [menuIsOpen, setIsMenuOpen] = useState(false);
+
 
   useEffect(() => {
     async function fetchDishes() {
@@ -43,7 +46,15 @@ export function Home() {
 
   return (
     <Container>
-      <Header onSearch={setSearch} />
+      {/* <SideMenu 
+        menuIsOpen={menuIsOpen} 
+        onCloseMenu={() => setIsMenuOpen(false)}
+        onSearch={setSearch} 
+      /> */}
+      <Header 
+        onSearch={setSearch} 
+        // onOpenMenu={() => setIsMenuOpen(true)}
+      />
       <Content>
         <Hero>
           <img

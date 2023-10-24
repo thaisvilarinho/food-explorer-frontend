@@ -1,19 +1,23 @@
-import { MagnifyingGlass, SignOut, Receipt } from "@phosphor-icons/react";
+import { useState } from "react";
+import { SignOut, Receipt, List } from "@phosphor-icons/react";
 import { useNavigate } from "react-router-dom";
 
 import { Button } from "../Button";
+import { SearchBar } from "../SearchBar";
+import { SideMenu } from "../SideMenu";
 
 import { useAuth } from "../../hooks/auth";
 import { useOrder } from "../../hooks/order";
 import { USER_ROLE } from "../../utils/roles";
 
-import { Container, Logo, Search, ButtonsWrapper, ButtonIcon } from "./styles";
+import { Container, Logo, ButtonsWrapper, ButtonIcon } from "./styles";
 
 export function Header({ onSearch }) {
   const { totalItemsOrder } = useOrder();
 
   const navigate = useNavigate();
   const { signOut, user } = useAuth();
+  const [menuIsOpen, setIsMenuOpen] = useState(false);
 
   function handleNavigationNewDish() {
     navigate(`/newdish`);
@@ -21,6 +25,18 @@ export function Header({ onSearch }) {
 
   return (
     <Container>
+      <SideMenu
+        menuIsOpen={menuIsOpen}
+        onCloseMenu={() => setIsMenuOpen(false)}
+        onSearch={onSearch}
+      />
+      <ButtonIcon
+        className="showOnlyOnSmallSizeScreen"
+        type="button"
+        onClick={() => setIsMenuOpen(true)}
+      >
+        <List />
+      </ButtonIcon>
       <Logo to="/">
         <svg
           width="43"
@@ -33,32 +49,49 @@ export function Header({ onSearch }) {
         </svg>
         <div>
           <h1>food explorer</h1>
-          <span>{user.role}</span>
+          <span className="showOnlyOnBigSizeScreen">{user.role}</span>
         </div>
       </Logo>
 
-      <Search>
-        <MagnifyingGlass />
-        <input
-          label="search"
-          placeholder="Busque por pratos ou ingredientes"
-          onChange={(e) => {
-            if (onSearch) {
-              onSearch(e.target.value);
-            }
-          }}
-        />
-      </Search>
+      <SearchBar
+        className="showOnlyOnBigSizeScreen"
+        placeholder="Busque por pratos ou ingredientes"
+        onChange={(e) => {
+          if (onSearch) {
+            onSearch(e.target.value);
+          }
+        }}
+      />
 
       <ButtonsWrapper>
         {user.role === USER_ROLE.ADMIN && (
-          <Button title="Novo prato" onClick={handleNavigationNewDish} />
+          <Button
+            className="showOnlyOnBigSizeScreen"
+            title="Novo prato"
+            onClick={handleNavigationNewDish}
+          />
         )}
         {user.role === USER_ROLE.CUSTOMER && (
-          <Button icon={Receipt} title={`Pedidos(${totalItemsOrder})`}  />
+          <>
+            <Button
+              className="showOnlyOnBigSizeScreen"
+              icon={Receipt}
+              title={`Pedidos(${totalItemsOrder})`}
+            />
+            <ButtonIcon type="button" className="showOnlyOnSmallSizeScreen">
+              <Receipt />
+              <div className="orderTotal">
+                <small>{totalItemsOrder}</small>
+              </div>
+            </ButtonIcon>
+          </>
         )}
 
-        <ButtonIcon type="button" onClick={signOut}>
+        <ButtonIcon
+          className="showOnlyOnBigSizeScreen"
+          type="button"
+          onClick={signOut}
+        >
           <SignOut />
         </ButtonIcon>
       </ButtonsWrapper>

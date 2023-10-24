@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.button`
   background: none;
@@ -11,9 +11,13 @@ export const Container = styled.button`
   color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
   > span {
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 140%;
+    font-weight: 300;
+    font-size: 1.5rem;
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+    }
   }
 
 `;

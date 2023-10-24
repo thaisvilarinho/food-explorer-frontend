@@ -56,7 +56,12 @@ export function Details() {
     <Container>
       <Header />
       <Content>
-        <ButtonText icon={CaretLeft} title="voltar" onClick={handleBack} />
+        <ButtonText
+          className="buttonText"
+          icon={CaretLeft}
+          title="voltar"
+          onClick={handleBack}
+        />
 
         {data && (
           <Dish>
@@ -72,18 +77,16 @@ export function Details() {
                 ))}
               </Ingredients>
 
-              <div className="editButtonWrapper">
-                {user.role === USER_ROLE.ADMIN && (
+              {user.role === USER_ROLE.ADMIN && (
+                <div className="editButtonWrapper">
                   <Button
                     title="Editar prato"
                     onClick={handleNavigateEditDish}
                   />
-                )}
-              </div>
+                </div>
+              )}
               {user.role === USER_ROLE.CUSTOMER && (
-                <OrderQuantityButtons 
-                  price={data.price}
-                />
+                <OrderQuantityButtons price={data.price} />
               )}
             </Description>
           </Dish>

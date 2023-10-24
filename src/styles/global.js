@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { DEVICE_BREAKPOINTS } from './deviceBreakpoints';
 
 export default createGlobalStyle`
   * {
@@ -9,6 +10,12 @@ export default createGlobalStyle`
 
   :root {
     --swiper-navigation-size: 27px;
+
+    font-size: 16px;
+
+    @media (max-width: ${DEVICE_BREAKPOINTS.MD}){
+      font-size: 12px;
+    }
   }
 
 
@@ -29,7 +36,7 @@ export default createGlobalStyle`
 
   body, input, button, textarea {
     font-family: ${({ theme }) => theme.FONTS.PRIMARY};
-    font-size: 16px;
+    font-size: 1rem;
     outline: none;
   }
 

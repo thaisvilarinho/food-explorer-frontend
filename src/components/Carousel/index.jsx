@@ -27,12 +27,24 @@ export function Carousel({ itemsTotal, children }) {
     <Container>
       <Swiper
         modules={[Navigation, Scrollbar, A11y]}
-        spaceBetween={27}
-        slidesPerView={slidesPerView}
         navigation
-        loop={itemsTotal >= slidesPerView * 2}
         scrollbar={{ draggable: true }}
         onSlideChange={handleSlideChange}
+        breakpoints={{
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 4,
+          },
+          768: {
+            slidesPerView: 1.5,
+            spaceBetween: 4,
+          },
+          1024: {
+            slidesPerView: slidesPerView,
+            spaceBetween: 27 ,
+            loop: itemsTotal >= slidesPerView * 2
+          },
+        }}
         className={currentIndex === 0 ? "first-slide" : currentIndex === totalSlides && "last-slide"}
       >
         {children}

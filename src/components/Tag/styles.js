@@ -7,15 +7,18 @@ export const Container = styled.div`
   background-color: ${({ theme, $isnew }) => $isnew ? "transparent" : theme.COLORS.LIGHT_600};
   border: ${({ theme, $isnew }) => $isnew ? `1px dashed ${theme.COLORS.LIGHT_500}` : "none"};
   
-  font-size: 16px;
+  font-size: 0.8rem;
   font-family: ${({ theme }) => theme.FONTS.SECONDARY}; 
 
-  border-radius: 8px;
-  padding: 8px 16px;
+  border-radius: 0.3rem;
+  padding: 0.5rem 1rem;
 
   > button { 
     border: none;
     background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .button-delete {
@@ -28,6 +31,7 @@ export const Container = styled.div`
 
   > input {
     width: 100%;
+    white-space: wrap;
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
     background: transparent;

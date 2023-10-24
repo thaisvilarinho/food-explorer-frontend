@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 export const Container = styled.div`
   width: 100%;
@@ -15,46 +16,71 @@ export const Container = styled.div`
 
 export const Content = styled.main`
   grid-area: content;
+  padding: 10px;
 
-  padding: 32px 123px 0;
+  .buttonText {
+    span {
+      font-weight: 500;
+    }
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINTS.MD}){
+    padding: 10px 32px 0;
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINTS.LG}){
+    padding: 32px 123px 0;
+  }
 
 `;
 
 export const Form = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  padding: 24px 0px 116px 0px;
+  gap: 2rem;
+  padding-top: 24px;
 
   > fieldset {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 1.5rem;
     border: none;
     width: 100%;
 
     legend {
       font-weight: 500;
-      font-size: 32px;
-      line-height: 140%;
+      font-size: 2rem;
       color: ${({ theme }) => theme.COLORS.LIGHT_300};
 
-      margin-bottom: 32px;
+      margin-bottom: 1.5rem;
     }
 
-    .horizontalWrapper {
+    .sectionWrapper {
       width: 100%;
       display: flex;
+      flex-direction: column;
       justify-content: space-between;
-      gap: 32px;
+      gap: 1.5rem;
     }
 
     .legend {
       color: ${({ theme }) => theme.COLORS.LIGHT_400};
       font-family: ${({ theme }) => theme.FONTS.SECONDARY};
-      font-size: 16px;
+      font-size: 1rem;
     }
 
+    @media (min-width: ${DEVICE_BREAKPOINTS.MD}){
+      gap: 32px;
+
+      legend {
+        margin-bottom: 2rem;
+      }
+
+      
+    .sectionWrapper {
+      flex-direction: row;
+    }
+    }
   }
 
   .button-wrapper {
@@ -62,14 +88,11 @@ export const Form = styled.div`
     display: flex;
     justify-content: end;
 
-    > button {
-      width: 172px;
-    }
-
     .remove {
       background: none;
       border: none;
-      border-radius: 5px;
+      border-radius: 0.3rem;
+      width: 100%;
 
       display: flex;
       align-items: center;
@@ -78,13 +101,24 @@ export const Form = styled.div`
       color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
       span {
+        white-space: nowrap;
         width: 100%;
         font-weight: 500;
-        font-size: 14px;
-        line-height: 24px;
+        font-size: 0.88rem;
+      }
+    }
+
+    @media (min-width: ${DEVICE_BREAKPOINTS.MD}){
+      .remove {
+        width: auto;
+        margin-right: 2rem;
+      }
+      > button {
+        width: 172px;
       }
     }
   }
+
 
 `;
 
@@ -94,10 +128,9 @@ export const ImageWrapper = styled.div`
 
   > label {
     cursor: pointer;
-    margin-top: 16px;
+    margin-top: 1rem;
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
-    font-size: 14px;
-    line-height: 24px;
+    font-size: 1rem;
     white-space: nowrap;
 
     padding: 0px 14px;
@@ -108,7 +141,7 @@ export const ImageWrapper = styled.div`
     align-items: center;
 
     svg {
-      font-size: 24px;
+      font-size: 1.5rem;
     }
   }
 
@@ -121,22 +154,22 @@ export const ImageWrapper = styled.div`
 export const Category = styled.div`
   width: 100%;
   display: flex;
-  gap: 16px;
+  gap: 1rem;
   flex-direction: column;
 
   > select {
     border: none;
     background: none;
-    padding: 16px;
+    padding: 1rem;
 
     background-color: ${({ theme }) => theme.COLORS.DARK_800};
 
     border: none;
-    border-radius: 5px;
+    border-radius: 0.3rem;
 
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
     font-family: ${({ theme }) => theme.FONTS.SECONDARY};
-    font-size: 16px;
+    font-size: 1rem;
 
     &[data-category-default="true"]{
       color: ${({ theme }) => theme.COLORS.LIGHT_400};
@@ -150,14 +183,39 @@ export const Category = styled.div`
       outline: none;
     }
   }
+
+
+  @media (min-width: ${DEVICE_BREAKPOINTS.XL}){    
+    margin-left: 24rem;
+  }
 `;
 
 export const Ingredients = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 16px;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 0.25rem 0.5rem;
 
-  padding: 4px 8px;
+  > div {
+    width: 100%;
+  }
+
+
+  @media (min-width: ${DEVICE_BREAKPOINTS.SM}){    
+    > div {
+      width: auto;
+    }
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINTS.MD}){    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINTS.LG}){    
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
 
 `;

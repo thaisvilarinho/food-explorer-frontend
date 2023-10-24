@@ -1,36 +1,45 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 export const Container = styled.footer`
   grid-area: footer;
 
   width: 100%;
-  padding: 0px 123px;
   height: 77px;
-
+  padding: 0px 26px;
+  
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;
+  justify-content: space-around;
 
   > p {
     font-family: ${({ theme }) => theme.FONTS.SECONDARY};
-    font-size: 14px;
-    line-height: 160%;
+    font-size: 0.88rem;
     color: ${({ theme }) => theme.COLORS.LIGHT_200};
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINTS.MD}){
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINTS.LG}){
+    padding: 0px 123px;
   }
 
 `;
 
 export const Logo = styled(Link)`
-  flex: 1;
   display: flex;
   align-items: center;
-  gap: 10px;
   color: ${({ theme }) => theme.COLORS.LIGHT_700};
+  gap: 10px;
 
   > svg { 
-    width: 30px;
-    height: 30px;
+    width: 1.88rem;
+    height: 1.88rem;
 
     path {
       fill: ${({ theme }) => theme.COLORS.LIGHT_700};
@@ -40,8 +49,15 @@ export const Logo = styled(Link)`
   > h1 {
     font-family: ${({ theme }) => theme.FONTS.SECONDARY};
     font-weight: 700;
-    font-size: 24px;
+    font-size: 1.2rem;
     white-space: nowrap;
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINTS.LG}){
+    flex: 1;
+    > h1 {
+    font-size: 1.5rem;
+  }
   }
 
 

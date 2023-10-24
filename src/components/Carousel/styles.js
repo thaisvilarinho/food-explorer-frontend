@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 export const Container = styled.div`
     
@@ -9,6 +10,12 @@ export const Container = styled.div`
         z-index: 3;
     }
 
+    .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINTS.XL}){
     .swiper::before {
       background: ${({ theme }) => theme.COLORS.GRADIENT_LEFT};
       content: "";
@@ -40,13 +47,16 @@ export const Container = styled.div`
 
   
   .swiper-button-next,
-    .swiper-button-prev {
-        color: ${({ theme }) => theme.COLORS.LIGHT_100};
-        transition: .5s ease;
+  .swiper-button-prev {
+    display: block;
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+    transition: .5s ease;
 
-        &:hover {
-            color: ${({ theme }) => theme.COLORS.CAKE_100};
-        }
+    &:hover {
+      color: ${({ theme }) => theme.COLORS.CAKE_100};
     }
+  }
+
+  }
  
 `;

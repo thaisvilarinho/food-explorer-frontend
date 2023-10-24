@@ -36,10 +36,12 @@ export function OrderQuantityButtons({ price }) {
 
 
   return (
-    <Container>
-      <ButtonText icon={Plus} onClick={handleIncrease} />
-      <span>{quantity < 10 ? `0${quantity}` : quantity}</span>
-      <ButtonText icon={Minus} onClick={handleDecrease} />
+    <Container data-big-size={!!price}>
+      <div className="controlsButtons">
+        <ButtonText icon={Minus} onClick={handleDecrease} />
+        <span>{quantity < 10 ? `0${quantity}` : quantity}</span>
+        <ButtonText icon={Plus} onClick={handleIncrease} />
+      </div>
       <div className="includeButtonWrapper" data-big-size={!!price}>
         <Button 
             title={!!price ? `incluir ∙ R$ ${totalFormatted}` : 'incluir'} 

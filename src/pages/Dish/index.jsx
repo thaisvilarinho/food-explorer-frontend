@@ -226,13 +226,13 @@ export function Dish() {
     <Container>
       <Header />
       <Content>
-        <ButtonText icon={CaretLeft} title="voltar" onClick={handleBack} />
+        <ButtonText className="buttonText" icon={CaretLeft} title="voltar" onClick={handleBack} />
 
         <Form>
           <fieldset>
             <legend>{params.id ? "Editar Prato" : "Adicionar prato"}</legend>
 
-            <section className="horizontalWrapper">
+            <section className="sectionWrapper">
               <ImageWrapper>
                 <span className="legend">Imagem do prato</span>
 
@@ -278,7 +278,7 @@ export function Dish() {
               </Category>
             </section>
 
-            <section className="horizontalWrapper">
+            <section className="sectionWrapper">
               <div>
                 <span className="legend">Ingredientes</span>
                 <Ingredients>
@@ -322,13 +322,18 @@ export function Dish() {
           </fieldset>
 
           <div className="button-wrapper">
-            <button
-              disabled={loadingDelete}
-              className="remove"
-              onClick={handleRemoveDish}
-            >
-              <span>{loadingDelete ? "..." : "Excluir prato"}</span>
-            </button>
+            {
+              !!params.id && (
+              <button
+                disabled={loadingDelete}
+                className="remove"
+                onClick={handleRemoveDish}
+              >
+                <span>{loadingDelete ? "..." : "Excluir prato"}</span>
+              </button>
+
+              )
+            }
             <Button
               title={loading ? "Salvando alterações..." : "Salvar alterações"}
               disabled={loading}

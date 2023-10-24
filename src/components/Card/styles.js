@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 export const Container = styled.div`
   padding: 0 24px;
@@ -48,26 +49,31 @@ export const Description = styled.div`
   align-items: center;
   text-align: center;
   gap: 15px;
+  margin-bottom: 15px;
 
   > h3 {
     font-weight: 700;
-    font-size: 24px;
-    line-height: 140%;
+    font-size: 1.5rem;
     white-space: nowrap;
   }
 
   > span {
-    font-size: 14px;
-    line-height: 160%;
-    font-family: ${({ theme }) => theme.FONTS.SECONDARY};
-    color: ${({ theme }) => theme.COLORS.LIGHT_400};
+    display: none;
   }
 
   > p {
-    font-size: 32px;
-    line-height: 160%;
+    font-size: 2rem;
     font-family: ${({ theme }) => theme.FONTS.SECONDARY};
     color: ${({ theme }) => theme.COLORS.CAKE_100};
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINTS.LG}){
+    > span {
+      display: flex;
+      font-size: 0.88rem;
+      font-family: ${({ theme }) => theme.FONTS.SECONDARY};
+      color: ${({ theme }) => theme.COLORS.LIGHT_400};
+    }
   }
  
 `;
