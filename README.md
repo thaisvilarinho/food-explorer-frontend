@@ -36,7 +36,7 @@ Sinta-se à vontade para usar estas contas de demonstração para explorar a nos
 
 Você pode experimentar a aplicação no ar através do seguinte link:
 
-[**Acessar o Food Explorer**](https://foodexplorervinigouvea.netlify.app/](https://explorer-food-frontend-app.netlify.app/)
+[**Acessar o Food Explorer**](https://explorer-food-frontend-app.netlify.app/)
 ## Index
 
 - [Recursos](#recursos)
@@ -80,7 +80,6 @@ Liste as principais tecnologias e bibliotecas que você usou no projeto, como:
 - [**axios**](https://axios-http.com/)
 - [**jwt-decode**](https://www.npmjs.com/package/jwt-decode)
 - [**react**](https://reactjs.org/)
-- [**react currency input field**](https://www.npmjs.com/package/react-currency-input-field)
 - [**react-dom**](https://reactjs.org/)
 - [**react-router-dom**](https://reactrouter.com/web/guides/quick-start)
 - [**styled-components**](https://styled-components.com/)
