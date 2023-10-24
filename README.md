@@ -74,6 +74,13 @@ Clone esse projeto, você vai precisar, também, do backend: https://github.com/
 ```bash
 $ npm run dev
 ```
+
+#### Crie um arquivo de configuração:
+Crie um arquivo `.env` como mostra no arquivo `.env.example` na raiz do projeto e configure as variáveis de ambiente necessárias. Por exemplo:
+```dotenv
+VITE_API_URL=
+```
+
 ## 💻 Tecnologias Utilizadas
 
 Liste as principais tecnologias e bibliotecas que você usou no projeto, como:
