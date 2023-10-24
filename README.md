@@ -4,7 +4,9 @@
 </br>
 O Food Explorer é uma aplicação web excepcional que oferece uma experiência verdadeiramente singular, ao simular um menu interativo para um restaurante fictício. Esta plataforma mergulha os usuários em uma jornada imersiva e informativa, permitindo-lhes explorar pratos, bebidas e opções de cardápio de maneira envolvente e visualmente deslumbrante. Com o Food Explorer, os clientes podem navegar pelos pratos, apreciar imagens, ler descrições e obter informações detalhadas sobre cada item, criando assim uma experiência gastronômica virtual que certamente despertará seu apetite.
 </br>
+
 > 🇺🇸
+
 </br>
 Food Explorer is an extraordinary web application that provides a truly unique experience by simulating an interactive menu for a fictional restaurant. This platform immerses users in an informative and engaging journey, allowing them to explore dishes, beverages, and menu options in an interactive and visually stunning manner. With Food Explorer, customers can browse through dishes, view images, read descriptions, and access detailed information about each item, creating a virtual culinary experience that will undoubtedly leave them craving for more
 
