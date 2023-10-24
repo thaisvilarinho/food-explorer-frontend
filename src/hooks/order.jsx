@@ -1,14 +1,18 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 
+import { useAuth } from './auth'
+
 const OrderContext = createContext({});
 
 function OrderProvider({ children }) {
+  const { user } = useAuth();
+  const orderKey = `@foodexplorer:order_${user.id}`;
   const [totalItemsOrder, setTotalItemsOrder] = useState(
-    parseInt(localStorage.getItem('@foodexplorer:order'), 10) || 0
+    parseInt(localStorage.getItem(orderKey), 10) || 0
   );
 
   useEffect(() => {
-    localStorage.setItem('@foodexplorer:order', totalItemsOrder.toString());
+    localStorage.setItem(orderKey, totalItemsOrder.toString());
   }, [totalItemsOrder]);
 
   return (
