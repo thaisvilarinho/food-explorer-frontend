@@ -217,5 +217,9 @@ export const Ingredients = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
   }
 
+  @media (min-width: ${DEVICE_BREAKPOINTS.XL}){    
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
 
 `;
