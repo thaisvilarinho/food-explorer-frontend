@@ -71,7 +71,7 @@ export function Dish() {
       const isConfirm = confirm("Tem certeza que deseja remover este item?");
 
       if (isConfirm) {
-        const response = await api.delete(`/dishes/${params.id}`, { withCredentials: true});
+        const response = await api.delete(`/dishes/${params.id}`);
 
         if(response.status === 204){
           alert("Item removido com sucesso!");
@@ -156,7 +156,7 @@ export function Dish() {
 
       if (params.id) {
         await api
-          .put(`/dishes/${params.id}`, formData, { withCredentials: true })
+          .put(`/dishes/${params.id}`, formData)
           .then(
             alert("Prato atualizado com sucesso!"),
             navigate(`/details/${params.id}`)
@@ -170,7 +170,7 @@ export function Dish() {
           });
       } else {
         await api
-          .post("/dishes", formData, { withCredentials: true })
+          .post("/dishes", formData)
           .then(() => {
             alert("Prato adicionado com sucesso!");
             handleBack();
@@ -196,9 +196,7 @@ export function Dish() {
 
   useEffect(() => {
     async function fetchDish() {
-      const response = await api.get(`/dishes/${params.id}`, {
-        withCredentials: true,
-      });
+      const response = await api.get(`/dishes/${params.id}`);
 
       const { name, description, category, price, ingredients, image } =
         response.data;
