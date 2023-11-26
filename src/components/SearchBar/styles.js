@@ -3,19 +3,19 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   align-items: center;
+  justify-content: center;
   gap: 14px;
   display: flex;
 
-  justify-content: center;
   border-radius: 5px;
 
 
-  background-color: ${({ theme }) => theme.COLORS.DARK_900};
+  background: ${({ theme }) => theme.COLORS.DARK_900};
 
   padding: 16px 0;
 
   > input {
-    width: 100%;
+    width: 70%;
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
     font-family: ${({ theme }) => theme.FONTS.SECONDARY};
     font-size: 1rem;
@@ -32,4 +32,16 @@ export const Container = styled.div`
     font-size: 1.5rem;
     color: ${({ theme }) => theme.COLORS.GRAY_400};
   }
+`;
+export const Content = styled.div`
+  height: 3rem;
+  align-items: center;
+  display: flex;
+
+  &[data-inside-menu="false"]{
+    height: 0;
+    width: 30%;
+    justify-content: flex-end;
+  }
+
 `;

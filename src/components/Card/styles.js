@@ -3,11 +3,15 @@ import styled from "styled-components";
 import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 export const Container = styled.div`
-  padding: 0 24px;
+  padding: 16px 24px 0;
   max-width: 304px;
   height: 462px;
   display: flex;
   flex-direction: column;
+
+  border-radius: 8px;
+
+  background: ${({ theme }) => theme.COLORS.DARK_200};
 
   > button{
       width: 24px;

@@ -27,52 +27,24 @@ export const Content = styled.main`
 
 export const Hero = styled.div`
   display: flex;
-  flex-direction: column;
   text-align: center;
+  position: relative;
 
   color: ${({ theme }) => theme.COLORS.LIGHT_100};
   padding-left: 6px;
-  
 
   > img {
-    width: 100%;
+    width: 35%;
   }
 
-  > div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    
-
-  h2 {
-    font-weight: 500;
-    font-size: clamp(1.8rem, 1.8rem + 1vw, 2.5rem);
-  }
-  
-  p {
-      font-family: ${({ theme }) => theme.FONTS.SECONDARY};
-      font-size: 1.5rem;
-      max-width: 30rem;
-    }
-  }
 
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}){
     flex-direction: row;
-    text-align: start;
 
     > img {
       width: 50%;
     }
 
-    > div {
-
-      p {
-      font-size: 1rem;
-      max-width: max-content;
-    }
-    }
   }
 
   @media (min-width: ${DEVICE_BREAKPOINTS.LG}){
@@ -86,12 +58,53 @@ export const Hero = styled.div`
     flex-direction: row;
     padding: 0 124px 0 54px;
     text-align: start;
-
-    > div {
-      padding: 0 101px 0 11px;
-
-    }
   }
+`;
+
+export const Description = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  
+  text-align: start;
+
+
+h2 {
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+  
+p {
+  font-size: 1rem;
+  font-family: ${({ theme }) => theme.FONTS.SECONDARY};
+  max-width: 30rem;
+}
+
+@media (min-width: ${DEVICE_BREAKPOINTS.MD}){
+  h2 {
+    font-size: 2.5rem;
+    white-space: nowrap;
+  }
+  p {
+    max-width: max-content;
+  }
+}
+
+@media (min-width: ${DEVICE_BREAKPOINTS.XL}){
+  padding: 0 101px 0 11px;
+}
+`;
+
+export const Background = styled.div`
+  position: absolute;
+  background: ${({theme}) => theme.COLORS.GRADIENT_200};
+  bottom: 10px;
+  left: 0;
+  top: 35%;
+  right: 0;
+  z-index: -1;
+
 `;
 
 export const Dishes = styled.div`

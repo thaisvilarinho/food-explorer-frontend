@@ -57,6 +57,7 @@ export function SignUp() {
             id="name"
             label="Seu nome"
             type="text"
+            lighterBackgroundColor
             placeholder="Exemplo: Maria da Silva"
             onChange={e => setName(e.target.value)}
           />
@@ -65,6 +66,7 @@ export function SignUp() {
             id="email"
             label="E-mail"
             type="text"
+            lighterBackgroundColor
             placeholder="Exemplo: exemplo@exemplo.com.br"
             onChange={e => setEmail(e.target.value)}
           />

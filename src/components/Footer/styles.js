@@ -5,6 +5,8 @@ import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 export const Container = styled.footer`
   grid-area: footer;
 
+  background: ${({ theme }) => theme.COLORS.DARK_600};
+
   width: 100%;
   height: 77px;
   padding: 0px 26px;

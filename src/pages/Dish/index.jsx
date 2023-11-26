@@ -19,6 +19,7 @@ import {
   ImageWrapper,
   Category,
   Ingredients,
+  PriceWrapper
 } from "./styles";
 
 export function Dish() {
@@ -73,7 +74,7 @@ export function Dish() {
       if (isConfirm) {
         const response = await api.delete(`/dishes/${params.id}`);
 
-        if(response.status === 204){
+        if (response.status === 204) {
           alert("Item removido com sucesso!");
 
           navigate("/");
@@ -81,13 +82,13 @@ export function Dish() {
       } else {
         return;
       }
-    }  catch (error) {
+    } catch (error) {
       if (error.response) {
         alert(error.response.data.message);
       } else {
         alert("Não foi possível remover o prato.");
       }
-    }finally {
+    } finally {
       setLoadingDelete(false);
     }
   }
@@ -194,6 +195,16 @@ export function Dish() {
     }
   }
 
+  function cleanData(){
+    setName("");
+    setDescription("");
+    setCategory("default");
+    setPrice("");
+    setImage(null);
+    setImageName("Selecione imagem");
+    setIngredients(ingredients);
+  }
+
   useEffect(() => {
     async function fetchDish() {
       const response = await api.get(`/dishes/${params.id}`);
@@ -217,8 +228,11 @@ export function Dish() {
 
     if (params.id) {
       fetchDish();
+    }else {
+      console.log("aqui")
+      cleanData();
     }
-  }, []);
+  }, [params.id]);
 
   return (
     <Container>
@@ -247,13 +261,14 @@ export function Dish() {
                   onChange={handleChangeImage}
                 />
               </ImageWrapper>
-              <Input
-                id="name"
-                label="Nome"
-                placeholder="Ex.: Salada Ceasar"
-                onChange={(e) => setName(e.target.value)}
-                value={name}
-              />
+
+                <Input
+                  id="name"
+                  label="Nome"
+                  placeholder="Ex.: Salada Ceasar"
+                  onChange={(e) => setName(e.target.value)}
+                  value={name}
+                />
 
               <Category>
                 <label htmlFor="category" className="legend">
@@ -299,7 +314,7 @@ export function Dish() {
                   />
                 </Ingredients>
               </div>
-              <div>
+              <PriceWrapper>
                 <Input
                   id="price"
                   label="Preço"
@@ -307,7 +322,7 @@ export function Dish() {
                   onChange={(e) => setPrice(e.target.value)}
                   value={price}
                 />
-              </div>
+              </PriceWrapper>
             </section>
 
             <TextArea
@@ -322,13 +337,13 @@ export function Dish() {
           <div className="button-wrapper">
             {
               !!params.id && (
-              <button
-                disabled={loadingDelete}
-                className="remove"
-                onClick={handleRemoveDish}
-              >
-                <span>{loadingDelete ? "..." : "Excluir prato"}</span>
-              </button>
+                <button
+                  disabled={loadingDelete}
+                  className="remove"
+                  onClick={handleRemoveDish}
+                >
+                  <span>{loadingDelete ? "..." : "Excluir prato"}</span>
+                </button>
 
               )
             }

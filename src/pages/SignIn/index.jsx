@@ -43,6 +43,7 @@ export function SignIn() {
             id="email"
             label="E-mail"
             type="text"
+            lighterBackgroundColor
             placeholder="Exemplo: exemplo@exemplo.com.br"
             onChange={e => setEmail(e.target.value)}
           />
@@ -53,6 +54,7 @@ export function SignIn() {
             autoComplete="off"
             minLength="6"
             type="password"
+            lighterBackgroundColor
             placeholder="No mínimo 6 caracteres"
             onChange={e => setPassword(e.target.value)}
           />

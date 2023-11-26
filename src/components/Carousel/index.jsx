@@ -28,7 +28,7 @@ export function Carousel({ itemsTotal, children }) {
       <Swiper
         modules={[Navigation, Scrollbar, A11y]}
         navigation
-        scrollbar={{ draggable: true }}
+        scrollbar={{ draggable: true, hide: true }}
         onSlideChange={handleSlideChange}
         breakpoints={{
           320: {

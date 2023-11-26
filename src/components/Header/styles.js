@@ -9,6 +9,8 @@ export const Container = styled.header`
   height: 114px;
   width: 100%;
   padding: 0 26px;
+
+  background: ${({ theme }) => theme.COLORS.DARK_600};
  
   
   display: flex;

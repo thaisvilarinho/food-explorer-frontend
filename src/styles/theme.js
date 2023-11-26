@@ -21,6 +21,7 @@ export default {
     
     GRADIENT_LEFT: "linear-gradient(270deg, rgba(255,255,255,0) 0%, #000A0F)",
     GRADIENT_RIGHT: "linear-gradient(90deg, rgba(255,255,255,0) 0%, #000A0F)",
+    GRADIENT_200: "linear-gradient(180deg, #091E26 0%, #00131C 100%)",
 
  
     TOMATO_100: "#AB4D55",

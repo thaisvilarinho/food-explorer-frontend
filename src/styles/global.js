@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import { DEVICE_BREAKPOINTS } from './deviceBreakpoints';
 
-export default createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;

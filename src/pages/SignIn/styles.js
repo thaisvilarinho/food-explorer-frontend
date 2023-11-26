@@ -39,6 +39,7 @@ export const Form = styled.form`
   justify-content: center;
   align-items: center;
 
+  border-radius: 1rem;
 
   > fieldset {
     width: 100%;
@@ -48,7 +49,6 @@ export const Form = styled.form`
     justify-content: center;
     align-items: center;
     gap: 2rem;
-  
   
     legend {
       display: none;
@@ -62,14 +62,18 @@ export const Form = styled.form`
 
   @media (min-width: ${DEVICE_BREAKPOINTS.LG}){
     margin-top: 0;
-    
-    legend {
-      display: block;
-      margin-bottom: 2rem;
-      text-align: center;
-      font-size: 2rem;
-      color: ${({ theme }) => theme.COLORS.LIGHT_100};
+    background: ${({ theme }) => theme.COLORS.DARK_700};
+
+    > fieldset {
+      legend {
+        display: block;
+        margin-bottom: 2rem;
+        text-align: center;
+        font-size: 2rem;
+        color: ${({ theme }) => theme.COLORS.LIGHT_100};
+      }
     }
+
   }
 `;
 

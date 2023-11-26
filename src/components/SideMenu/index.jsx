@@ -30,6 +30,7 @@ export function SideMenu({ menuIsOpen, onCloseMenu, onSearch }) {
       <section>
         <SearchBar
           placeholder="Busque por pratos ou ingredientes"
+          insideMenu
           onChange={(e) => {
             if (onSearch) {
               onSearch(e.target.value);

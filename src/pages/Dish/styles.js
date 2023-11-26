@@ -16,7 +16,7 @@ export const Container = styled.div`
 
 export const Content = styled.main`
   grid-area: content;
-  padding: 10px;
+  padding: 30px 10px 53px;
 
   .buttonText {
     span {
@@ -25,11 +25,11 @@ export const Content = styled.main`
   }
 
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}){
-    padding: 10px 32px 0;
+    padding: 10px 32px 116px;
   }
 
   @media (min-width: ${DEVICE_BREAKPOINTS.LG}){
-    padding: 32px 123px 0;
+    padding: 32px 123px 116px;
   }
 
 `;
@@ -59,7 +59,6 @@ export const Form = styled.div`
       width: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       gap: 1.5rem;
     }
 
@@ -118,8 +117,14 @@ export const Form = styled.div`
       }
     }
   }
+`;
 
-
+export const PriceWrapper = styled.div`
+ > div {
+    label {
+      margin-top: 0.4rem;
+    }
+  }
 `;
 
 export const ImageWrapper = styled.div`
@@ -133,7 +138,10 @@ export const ImageWrapper = styled.div`
     font-size: 1rem;
     white-space: nowrap;
 
-    padding: 0px 14px;
+    background: ${({ theme }) => theme.COLORS.DARK_800};
+    border-radius: 0.3rem;
+
+    padding: 12px 14px;
     height: 100%;
 
     display: flex;
@@ -152,7 +160,6 @@ export const ImageWrapper = styled.div`
 `;
 
 export const Category = styled.div`
-  width: 100%;
   display: flex;
   gap: 1rem;
   flex-direction: column;
@@ -162,7 +169,7 @@ export const Category = styled.div`
     background: none;
     padding: 1rem;
 
-    background-color: ${({ theme }) => theme.COLORS.DARK_800};
+    background: ${({ theme }) => theme.COLORS.DARK_800};
 
     border: none;
     border-radius: 0.3rem;
@@ -184,10 +191,6 @@ export const Category = styled.div`
     }
   }
 
-
-  @media (min-width: ${DEVICE_BREAKPOINTS.XL}){    
-    margin-left: 24rem;
-  }
 `;
 
 export const Ingredients = styled.div`
@@ -195,7 +198,13 @@ export const Ingredients = styled.div`
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 1rem;
-  padding: 0.25rem 0.5rem;
+  padding: 6px 8px;
+
+  align-items: center;
+
+  background: ${({ theme }) => theme.COLORS.DARK_800};
+
+  border-radius: 8px;
 
   > div {
     width: 100%;

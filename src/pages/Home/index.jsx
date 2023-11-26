@@ -11,7 +11,7 @@ import { DISH_CATEGORY } from "../../utils/categories";
 
 import { api } from "../../services/api";
 
-import { Container, Content, Hero, Dishes } from "./styles";
+import { Container, Content, Hero, Background, Description, Dishes } from "./styles";
 
 export function Home() {
   const [dishes, setDishes] = useState({});
@@ -42,8 +42,8 @@ export function Home() {
 
   return (
     <Container>
-      <Header 
-        onSearch={setSearch} 
+      <Header
+        onSearch={setSearch}
       />
       <Content>
         <Hero>
@@ -51,10 +51,11 @@ export function Home() {
             src="/hero.png"
             alt="Biscoitos recheados com frutinhas vermelhas e um cenário de folhas caindo ao seu redor, em tons vibrantes e coloridos."
           />
-          <div>
+          <Description>
             <h2>Sabores inigualáveis</h2>
             <p>Sinta o cuidado do preparo com ingredientes selecionados</p>
-          </div>
+          </Description>
+          <Background />
         </Hero>
 
         <Dishes>

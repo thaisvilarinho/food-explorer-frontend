@@ -9,7 +9,15 @@ export const Container = styled.aside`
   left: 0;
   overflow-x: hidden;
 
-  z-index: 10;
+  display: grid;
+  grid-template-rows: 114px auto 77px;
+  grid-template-areas: 
+    'header'
+    'content'
+    'footer'
+    ;
+
+    z-index: 10;
 
   transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
@@ -17,11 +25,8 @@ export const Container = styled.aside`
   &[data-menu-is-open="true"]{
     transform: translateX(0);
 }
-
-  display: flex;
-  flex-direction: column;
-
   > section {
+    grid-area: content;
     height: 100%;
     display: flex;
     text-align: start;
@@ -39,6 +44,8 @@ export const Container = styled.aside`
 `;
 
 export const Header = styled.header`
+  grid-area: header;
+  background: ${({ theme }) => theme.COLORS.DARK_600};
   display: flex;
   padding: 56px 28px 24px 28px;
 `;

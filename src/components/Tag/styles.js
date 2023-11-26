@@ -11,7 +11,8 @@ export const Container = styled.div`
   font-family: ${({ theme }) => theme.FONTS.SECONDARY}; 
 
   border-radius: 0.3rem;
-  padding: 0.5rem 1rem;
+  padding: 0 16px;
+  height: 2rem;
 
   > button { 
     border: none;

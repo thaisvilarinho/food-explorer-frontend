@@ -18,7 +18,7 @@ export const Container = styled.div`
 export const Content = styled.main`
   grid-area: content;
 
-  padding: 16px;
+  padding: 30px 16px 0;
 
   .buttonText {
     span {
@@ -27,7 +27,7 @@ export const Content = styled.main`
   }
 
   @media (min-width: ${DEVICE_BREAKPOINTS.LG}){
-    padding: 32px 123px 0;
+    padding: 32px 123px 199px;
   }
   
 `;
@@ -58,7 +58,7 @@ export const Description = styled.aside`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3.5rem;
+  gap: 2rem;
 
   color: ${({ theme }) => theme.COLORS.LIGHT_300};
   text-align: center;
@@ -66,11 +66,11 @@ export const Description = styled.aside`
 
   > h2 {
     font-weight: 500;
-    font-size: 2.5rem;
+    font-size: 2.253rem;
   }
 
   > p {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .editButtonWrapper {
@@ -80,6 +80,13 @@ export const Description = styled.aside`
   
 
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}){
+    > h2 {
+      font-size: 2.5rem;
+    }
+
+    > p {
+    font-size: 1.3rem;
+  }
 
     .editButtonWrapper {
       width: 131px;
@@ -95,22 +102,29 @@ export const Description = styled.aside`
 
 export const Ingredients = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 24px;
 
-  background: ${({ theme }) => theme.COLORS.DARK_1000};
+  
   color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
   span {
+    background: ${({ theme }) => theme.COLORS.DARK_1000};
+    border-radius: 5px;
     padding: 4px 8px;
     font-weight: 500;
     font-size: 14px;
     white-space: nowrap;
   }
 
+  @media (min-width: ${DEVICE_BREAKPOINTS.SM}){
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}){
     width: 80%;
   }
+  
   @media (min-width: ${DEVICE_BREAKPOINTS.LG}){
     width: 100%;
     display: flex;

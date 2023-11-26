@@ -1,14 +1,17 @@
 import { MagnifyingGlass } from "@phosphor-icons/react";
 
-import { Container } from "./styles";
+import { Container, Content } from "./styles";
 
-export function SearchBar({ className, ...rest }) {
+export function SearchBar({ className,insideMenu=false, ...rest }) {
   return (
     <Container className={className}>
-      <MagnifyingGlass />
-      <input
-        {...rest}
-      />
+      <Content data-inside-menu={insideMenu}>
+        <MagnifyingGlass />
+      </Content>
+        <input
+          {...rest}
+        />
+
     </Container>
   );
 }
